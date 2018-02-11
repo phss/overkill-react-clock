@@ -1,26 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { TickingClock, PartOfDayContainer } from './containers'
+import { updateClock } from './actions'
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            time: new Date()
-        };
-    }
-
+export class App extends React.Component {
     componentDidMount() {
-        this.timer = setInterval(() => this.tick(), 1000);
+        this.timer = setInterval(() => this.props.tick(), 1000);
     }
 
     componentWillUnmount() {
         clearInterval(this.timer);
-    }
-
-    tick() {
-        this.setState({
-            time: new Date()
-        });
     }
 
     render() {
@@ -35,4 +24,8 @@ class App extends React.Component {
 
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+    tick: () => { dispatch(updateClock(new Date())) },
+});
+
+export default connect(null, mapDispatchToProps)(App);

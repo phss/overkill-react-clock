@@ -6,7 +6,9 @@ import { timeKeeper } from './reducers';
 import App from './app';
 import './index.css';
 
-let store = createStore(timeKeeper);
+let store = createStore(
+    timeKeeper,
+    window.devToolsExtension ? window.devToolsExtension() : f => f);
 
 ReactDOM.render(
     <Provider store={store}>
