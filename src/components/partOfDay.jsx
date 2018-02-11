@@ -13,8 +13,8 @@ const partAt = (time) => {
     return "night";
 };
 
-const PartOfDay = (props) => {
-    return <p className="partOfDay">It is {partAt(props.time)}</p>;
+const PartOfDay = ({ time }) => {
+    return <p className="partOfDay">It is {partAt(time)}</p>;
 };
 
 export default PartOfDay;
