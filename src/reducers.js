@@ -2,10 +2,10 @@ const initialState = {
     time: new Date(),
 };
 
-export const timeKeeper = (state = initialState, action) => {
-    switch (action.type) {
+export const timeKeeper = (state = initialState, { type, time }) => {
+    switch (type) {
         case 'UPDATE_CLOCK':
-            return { time: action.time };
+            return { time };
         default:
             return state;
     }
