@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, PartOfDay } from './components'
+import { TickingClock, PartOfDayContainer } from './containers'
 
 class App extends React.Component {
     constructor(props) {
@@ -27,8 +27,8 @@ class App extends React.Component {
         return (
             <div>
                 <h1>Overkill React Clock</h1>
-                <Clock time={this.state.time} />
-                <PartOfDay time={this.state.time} />
+                <TickingClock />
+                <PartOfDayContainer />
             </div>
         );
     }
