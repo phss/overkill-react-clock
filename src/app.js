@@ -1,5 +1,5 @@
 import React from 'react';
-import Clock from './components/clock'
+import { Clock, PartOfDay } from './components'
 
 class App extends React.Component {
     constructor(props) {
@@ -24,7 +24,12 @@ class App extends React.Component {
     }
 
     render() {
-        return (<Clock time={this.state.time} />);
+        return (
+            <div>
+                <Clock time={this.state.time} />
+                <PartOfDay time={this.state.time} />
+            </div>
+        );
     }
 
 }

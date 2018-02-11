@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
 import App from "./app";
-import Clock from "./components/clock";
+import { Clock, PartOfDay } from './components'
 
 describe("App", () => {
     it("renders without crashing", () => {
@@ -15,5 +15,9 @@ describe("App", () => {
         expect(component.find(Clock).length).toBe(1);
     });
 
+    it("contains a PartOfDay", () => {
+        const component = shallow(<App />);
+        expect(component.find(PartOfDay).length).toBe(1);
+    });
 });
 
