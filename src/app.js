@@ -26,6 +26,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <h1>Overkill React Clock</h1>
                 <Clock time={this.state.time} />
                 <PartOfDay time={this.state.time} />
             </div>

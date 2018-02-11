@@ -14,7 +14,7 @@ const partAt = (time) => {
 };
 
 const PartOfDay = (props) => {
-    return <p>It is {partAt(props.time)}</p>;
+    return <p className="partOfDay">It is {partAt(props.time)}</p>;
 };
 
 export default PartOfDay;
