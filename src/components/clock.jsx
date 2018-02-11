@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Clock(props) {
+const Clock = (props) => {
     return (
         <div>
             <h1>Hello, world!</h1>
