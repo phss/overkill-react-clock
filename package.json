@@ -51,7 +51,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "flow": "flow",
+    "test": "yarn flow && node scripts/test.js --env=jsdom --coverage",
+    "test-watch": "node scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [

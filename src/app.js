@@ -1,7 +1,8 @@
+// @flow
 import React from 'react';
 import { TickingClock, PartOfDayContainer } from './containers';
 
-const App = (props) => {
+const App = () => {
     return (
         <div>
             <h1>Overkill React Clock</h1>
