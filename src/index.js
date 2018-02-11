@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { compose, createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux';
 import { timeKeeper } from './reducers';
+import sagas from './sagas';
 import App from './app';
 import './index.css';
 
-let store = createStore(
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
     timeKeeper,
-    window.devToolsExtension ? window.devToolsExtension() : f => f);
+    compose(
+        applyMiddleware(sagaMiddleware),
+        window.devToolsExtension ? window.devToolsExtension() : f => f));
 
 ReactDOM.render(
     <Provider store={store}>
         <App />
     </Provider>,
     document.getElementById('root'));
+
+sagaMiddleware.run(sagas);
