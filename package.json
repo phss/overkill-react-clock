@@ -52,7 +52,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "flow": "flow",
-    "prettier-check": "prettier '{src,config}/**/*.{js,jsx,ts,tsx}' --list-different",
+    "prettier-check": "prettier '{src}/**/*.{js,jsx,ts,tsx}' --list-different",
     "test": "yarn flow && node scripts/test.js --env=jsdom --coverage",
     "test-watch": "node scripts/test.js --env=jsdom"
   },
