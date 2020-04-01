@@ -44,12 +44,12 @@ Start the application
  
  ## Notable commits
  
-- Basic React clock from documentation: 768a52967c4a2d30f50bc826a3bb0130d3b75e36
-- Convert element into a functional component: 55b8d8eb22df367bb80fcb2231f3590f272065d4
-- Convert to ES6 style function: 85573c4c02f380011e6a33c34b060b002818b565
-- Extract top level App component from index.js: 320b2323a4756d5a06686317e04399925cbf0101
-- Move time updating logic to App: e32f2d435b9320e656c1dcf3d4a5b97b8e7a71fe
-- Add a PartOfDay component, to test multiple components: 9ba919f97fbf0e9eb74138f9cd1fa8cb27fdbe2b
-- Setup Redux action and reducer for updating time: c1b80fae32f1321a5e552acbeb8a4676d2c1534b
-- Add containers for clock and part of day: 802d78ee874159db18cb85143ff63b92e89d500d
-- Move clock ticking logic to a saga: 4241bd358923a46bbdbafc4dca40c86689670050
+- [Basic React clock from documentation](768a52967c4a2d30f50bc826a3bb0130d3b75e36)
+- [Convert element into a functional component](55b8d8eb22df367bb80fcb2231f3590f272065d4)
+- [Convert to ES6 style function](85573c4c02f380011e6a33c34b060b002818b565)
+- [Extract top level App component from index.js](320b2323a4756d5a06686317e04399925cbf0101)
+- [Move time updating logic to App](e32f2d435b9320e656c1dcf3d4a5b97b8e7a71fe)
+- [Add a PartOfDay component, to test multiple components](9ba919f97fbf0e9eb74138f9cd1fa8cb27fdbe2b)
+- [Setup Redux action and reducer for updating time](c1b80fae32f1321a5e552acbeb8a4676d2c1534b)
+- [Add containers for clock and part of day](02d78ee874159db18cb85143ff63b92e89d500d)
+- [Move clock ticking logic to a saga](4241bd358923a46bbdbafc4dca40c86689670050)
