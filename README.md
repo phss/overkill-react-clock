@@ -40,4 +40,8 @@ Start the application
 
     yarn start
     
- And that's it!
+ And that's it! Have fun playing with it!
+ 
+ ## Notable commits
+ 
+ 768a52967c4a2d30f50bc826a3bb0130d3b75e36
