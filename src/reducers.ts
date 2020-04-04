@@ -2,7 +2,7 @@
 import type { UpdateClockAction } from "./actions";
 
 export type State = {
-  time: Date,
+  time: Date;
 };
 
 const initialState = {

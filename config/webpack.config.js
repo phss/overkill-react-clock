@@ -206,9 +206,10 @@ module.exports = function(webpackEnv) {
       // https://github.com/facebook/create-react-app/issues/290
       // `web` extension prefixes have been added for better support
       // for React Native Web.
-      extensions: paths.moduleFileExtensions
-        .map(ext => `.${ext}`)
-        .filter(ext => useTypeScript || !ext.includes('ts')),
+      extensions: [".js", ".jsx", ".ts", ".tsx"],
+      // extensions: paths.moduleFileExtensions
+      //   .map(ext => `.${ext}`)
+      //   .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -232,6 +233,21 @@ module.exports = function(webpackEnv) {
     module: {
       strictExportPresence: true,
       rules: [
+        {
+          test: /\.ts(x?)$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: "ts-loader"
+            }
+          ]
+        },
+        // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+        {
+          enforce: "pre",
+          test: /\.js$/,
+          loader: "source-map-loader"
+        },
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
 
@@ -355,7 +371,7 @@ module.exports = function(webpackEnv) {
             // ** STOP ** Are you adding a new loader?
             // Make sure to add the new loader(s) before the "file" loader.
           ],
-        },
+        }
       ],
     },
     plugins: [

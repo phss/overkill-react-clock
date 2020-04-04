@@ -3,8 +3,8 @@
 export type UpdateClock = "UPDATE_CLOCK";
 
 export type UpdateClockAction = {
-  type: UpdateClock,
-  time: Date,
+  type: UpdateClock;
+  time: Date;
 };
 
 export const updateClock = (newTime: Date): UpdateClockAction => ({
