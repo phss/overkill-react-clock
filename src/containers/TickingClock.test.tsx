@@ -2,7 +2,7 @@ import * as React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { mount } from "enzyme";
-import TickingClock from "./tickingClock";
+import TickingClock from "./TickingClock";
 import { timeKeeper } from "../reducers/timeKeeper";
 
 describe("TickingClock container", () => {
