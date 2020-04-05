@@ -1,4 +1,3 @@
-// @flow
 import type { UpdateClockAction } from "./actions";
 
 export type State = {

@@ -1,5 +1,3 @@
-// @flow
-
 export type UpdateClock = "UPDATE_CLOCK";
 
 export type UpdateClockAction = {
