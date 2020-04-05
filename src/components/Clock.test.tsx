@@ -1,6 +1,6 @@
-import React from "react";
+import * as React from "react";
 import { shallow } from "enzyme";
-import Clock from "./clock";
+import { Clock } from "./Clock";
 
 describe("Clock component", () => {
   it("contains the specified time", () => {

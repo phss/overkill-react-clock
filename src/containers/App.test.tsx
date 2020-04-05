@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { shallow } from "enzyme";
-import App from "./app";
-import TickingClock from "./tickingClock";
-import PartOfDayContainer from "./partOfDayContainer";
+import { App } from "./App";
+import TickingClock from "./TickingClock";
+import PartOfDayContainer from "./PartOfDayContainer";
 
 describe("App", () => {
   xit("renders without crashing", () => {

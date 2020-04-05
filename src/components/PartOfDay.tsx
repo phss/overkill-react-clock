@@ -1,6 +1,10 @@
-import React from "react";
+import * as React from "react";
 
-const partAt = (time) => {
+export interface PartOfDayProps {
+  time: Date;
+}
+
+const partAt = (time: Date) => {
   const hour = time.getHours();
 
   if (hour >= 5 && hour < 12) {
@@ -13,8 +17,6 @@ const partAt = (time) => {
   return "night";
 };
 
-const PartOfDay = ({ time }) => {
-  return <p className="partOfDay">It is {partAt(time)}</p>;
-};
-
-export default PartOfDay;
+export const PartOfDay = ({ time }: PartOfDayProps) => (
+  <p className="partOfDay">It is {partAt(time)}</p>
+);

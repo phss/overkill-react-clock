@@ -1,9 +1,9 @@
-import React from "react";
+import * as React from "react";
 import { shallow } from "enzyme";
-import PartOfDay from "./partOfDay";
+import { PartOfDay } from "./PartOfDay";
 
 describe("PartOfDay component", () => {
-  const componentAtTime = (hour, minute) => {
+  const componentAtTime = (hour: number, minute: number) => {
     return shallow(<PartOfDay time={new Date(2018, 2, 6, hour, minute, 0)} />);
   };
 
