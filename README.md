@@ -53,3 +53,4 @@ Start the application
 - [Setup Redux action and reducer for updating time](c1b80fae32f1321a5e552acbeb8a4676d2c1534b)
 - [Add containers for clock and part of day](02d78ee874159db18cb85143ff63b92e89d500d)
 - [Move clock ticking logic to a saga](4241bd358923a46bbdbafc4dca40c86689670050)
+- [Convert to typescript](103f76ea5ec7af5c1228f09aae4455e9b7b1317f)
