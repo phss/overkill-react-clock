@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack",
     "flow": "flow",
     "prettier-check": "prettier 'src/**/*.{js,jsx,ts,tsx}' --list-different",
     "test": "jest --coverage",
