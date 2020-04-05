@@ -1,5 +1,6 @@
 import React from "react";
-import { TickingClock, PartOfDayContainer } from "./containers";
+import TickingClock from "./tickingClock";
+import PartOfDayContainer from "./partOfDayContainer";
 
 const App = () => {
   return (

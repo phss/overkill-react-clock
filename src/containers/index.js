@@ -1,4 +1,3 @@
-import TickingClock from "./tickingClock";
-import PartOfDayContainer from "./partOfDayContainer";
+import App from "./app";
 
-export { TickingClock, PartOfDayContainer };
+export { App };

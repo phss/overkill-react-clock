@@ -1,4 +1,4 @@
-import type { UpdateClockAction } from "./actions";
+import type { UpdateClockAction } from "../actions/updateClock";
 
 export type State = {
   time: Date;

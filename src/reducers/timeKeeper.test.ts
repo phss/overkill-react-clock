@@ -1,4 +1,4 @@
-import { timeKeeper } from "./reducers";
+import { timeKeeper } from "./timeKeeper";
 
 describe("Reducers", () => {
   it("has initial state", () => {

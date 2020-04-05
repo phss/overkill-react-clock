@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import { compose, createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { Provider } from "react-redux";
-import { timeKeeper } from "./reducers";
-import sagas from "./sagas";
-import App from "./app";
-import "./index.css";
+import { timeKeeper } from "./reducers/timeKeeper";
+import sagas from "./sagas/tickClock";
+import { App } from "./containers";
+import "./styles/index.css";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

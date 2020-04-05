@@ -1,4 +1,4 @@
-import { updateClock } from "./actions";
+import { updateClock } from "./updateClock";
 
 describe("Actions", () => {
   it("return action for UPDATE_CLOCK", () => {

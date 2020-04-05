@@ -1,4 +1,4 @@
-import { tickClock } from "./sagas";
+import { tickClock } from "./tickClock";
 
 describe("Saga", () => {
   xit("tick clock every second", () => {

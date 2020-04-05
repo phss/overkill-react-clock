@@ -3,7 +3,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { mount } from "enzyme";
 import PartOfDayContainer from "./partOfDayContainer";
-import { timeKeeper } from "../reducers";
+import { timeKeeper } from "../reducers/timeKeeper";
 
 describe("PartOfDayContainer container", () => {
   it("updates on UPDATE_CLOCK action", () => {

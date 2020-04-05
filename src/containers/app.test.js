@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
 import App from "./app";
-import { TickingClock, PartOfDayContainer } from "./containers";
+import TickingClock from "./tickingClock";
+import PartOfDayContainer from "./partOfDayContainer";
 
 describe("App", () => {
   xit("renders without crashing", () => {

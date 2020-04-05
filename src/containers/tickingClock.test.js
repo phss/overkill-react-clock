@@ -3,7 +3,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { mount } from "enzyme";
 import TickingClock from "./tickingClock";
-import { timeKeeper } from "../reducers";
+import { timeKeeper } from "../reducers/timeKeeper";
 
 describe("TickingClock container", () => {
   xit("updates on UPDATE_CLOCK action", () => {
