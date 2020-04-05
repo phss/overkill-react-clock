@@ -1,4 +1,3 @@
-import { put, delay } from "redux-saga/effects";
 import { tickClock } from "./sagas";
 
 describe("Saga", () => {

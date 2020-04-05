@@ -4,7 +4,7 @@
 
 ![CI](https://github.com/overkilling/overkill-react-clock/workflows/CI/badge.svg)
 
-![Overkill React Clock](/public/sample.png?raw=true)
+![Overkill React Clock](/.github/sample.png?raw=true)
 
 This is an extreme, overengineered, example of a ticking clock webapp. 
 The starting point is the basic clock [from the React documentation](https://reactjs.org/docs/rendering-elements.html).

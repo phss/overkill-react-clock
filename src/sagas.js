@@ -1,3 +1,4 @@
+import "regenerator-runtime/runtime";
 import { put, delay } from "redux-saga/effects";
 import { updateClock } from "./actions";
 
