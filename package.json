@@ -5,10 +5,11 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build": "webpack",
+    "compile": "tsc",
     "prettier-check": "prettier 'src/**/*.{js,jsx,ts,tsx}' --list-different",
     "test": "jest --coverage",
     "test-watch": "jest --watch",
-    "ci": "yarn test && yarn prettier-check"
+    "ci": "yarn compile && yarn test && yarn prettier-check"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
