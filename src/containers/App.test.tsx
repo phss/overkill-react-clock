@@ -1,14 +1,24 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 import { shallow } from 'enzyme'
 import { App } from './App'
 import TickingClock from './TickingClock'
 import PartOfDayContainer from './PartOfDayContainer'
+import { timeKeeper } from '../reducers/timeKeeper'
 
 describe('App', () => {
-  it.skip('renders without crashing', () => {
+  it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<App />, div)
+    const testStore = createStore(timeKeeper)
+    ReactDOM.render(
+      <Provider store={testStore}>
+        <App></App>
+      </Provider>,
+      div
+    )
+    expect(div.textContent).toContain('Overkill React Clock')
   })
 
   it('contains a Clock', () => {
