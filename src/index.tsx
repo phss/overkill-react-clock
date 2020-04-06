@@ -4,7 +4,7 @@ import { compose, createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
 import { timeKeeper } from './reducers/timeKeeper'
-import sagas from './sagas/tickClock'
+import { tickClock } from './sagas/tickClock'
 import { App } from './containers/App'
 import './styles/index.css'
 
@@ -25,4 +25,4 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-sagaMiddleware.run(sagas)
+sagaMiddleware.run(tickClock)
