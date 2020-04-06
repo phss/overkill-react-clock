@@ -6,7 +6,7 @@ import TickingClock from './TickingClock'
 import { timeKeeper } from '../reducers/timeKeeper'
 
 describe('TickingClock container', () => {
-  it.skip('updates on UPDATE_CLOCK action', () => {
+  it('updates on UPDATE_CLOCK action', () => {
     const testStore = createStore(timeKeeper)
     const date = new Date(2018, 2, 11, 16, 30, 7)
     const component = mount(
