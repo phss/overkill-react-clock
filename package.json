@@ -10,7 +10,7 @@
     "prettier-check": "prettier 'src/**/*.{js,jsx,ts,tsx}' --list-different",
     "test": "jest --coverage",
     "test-watch": "jest --watch",
-    "ci": "yarn compile && yarn test && yarn prettier-check"
+    "ci": "yarn compile && yarn test && yarn prettier-check && yarn lint"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

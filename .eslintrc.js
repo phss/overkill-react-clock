@@ -26,6 +26,8 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }]
+    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
+    'generator-star-spacing': 0,
+    'space-before-function-paren': 0
   }
 }
