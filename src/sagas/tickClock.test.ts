@@ -1,12 +1,14 @@
 import { tickClock } from './tickClock'
+import { delay } from 'redux-saga/effects'
 
 describe('Saga', () => {
-  it.skip('tick clock every second', () => {
+  it('tick clock every second', () => {
     const gen = tickClock()
 
-    // @ts-ignore
-    expect(gen.next().value.PUT.action.type).toEqual('UPDATE_CLOCK')
-    // @ts-ignore
-    expect(gen.next().value.DELAY).toEqual(1000)
+    expect(gen.next().value).toMatchObject({
+      type: 'PUT',
+      payload: { action: { type: 'UPDATE_CLOCK' } }
+    })
+    expect(gen.next().value).toEqual(delay(1000))
   })
 })
