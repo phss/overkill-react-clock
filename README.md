@@ -42,6 +42,16 @@ Start the application
     
  And that's it! Have fun playing with it!
  
+ ## Building and running a Docker image
+ 
+ To build this webapp as a Docker image
+ 
+    docker build -t overkill-react-clock .
+    
+ And to run it
+ 
+    docker run -p 80:80 overkill-react-clock
+ 
  ## Notable commits
  
 - [Basic React clock from documentation](768a52967c4a2d30f50bc826a3bb0130d3b75e36)
@@ -54,3 +64,4 @@ Start the application
 - [Add containers for clock and part of day](02d78ee874159db18cb85143ff63b92e89d500d)
 - [Move clock ticking logic to a saga](4241bd358923a46bbdbafc4dca40c86689670050)
 - [Convert to typescript](103f76ea5ec7af5c1228f09aae4455e9b7b1317f)
+- [Dockerize building and running the app](444bc93469eab1e353ece64327ac6b09d5fb571e)
