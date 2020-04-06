@@ -1,6 +1,6 @@
-import * as React from "react";
-import TickingClock from "./TickingClock";
-import PartOfDayContainer from "./PartOfDayContainer";
+import * as React from 'react'
+import TickingClock from './TickingClock'
+import PartOfDayContainer from './PartOfDayContainer'
 
 export const App = () => {
   return (
@@ -9,5 +9,5 @@ export const App = () => {
       <TickingClock />
       <PartOfDayContainer />
     </div>
-  );
-};
+  )
+}

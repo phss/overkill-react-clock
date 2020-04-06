@@ -1,22 +1,22 @@
-import * as React from "react";
+import * as React from 'react'
 
 export interface PartOfDayProps {
-  time: Date;
+  time: Date
 }
 
 const partAt = (time: Date) => {
-  const hour = time.getHours();
+  const hour = time.getHours()
 
   if (hour >= 5 && hour < 12) {
-    return "morning";
+    return 'morning'
   } else if (hour >= 12 && hour < 17) {
-    return "afternoon";
+    return 'afternoon'
   } else if (hour >= 17 && hour < 21) {
-    return "evening";
+    return 'evening'
   }
-  return "night";
-};
+  return 'night'
+}
 
 export const PartOfDay = ({ time }: PartOfDayProps) => (
   <p className="partOfDay">It is {partAt(time)}</p>
-);
+)

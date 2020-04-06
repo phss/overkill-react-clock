@@ -1,12 +1,12 @@
-import "regenerator-runtime/runtime";
-import { put, delay } from "redux-saga/effects";
-import { updateClock } from "../actions/updateClock";
+import 'regenerator-runtime/runtime'
+import { put, delay } from 'redux-saga/effects'
+import { updateClock } from '../actions/updateClock'
 
 export function* tickClock() {
   while (true) {
-    yield put(updateClock(new Date()));
-    yield delay(1000);
+    yield put(updateClock(new Date()))
+    yield delay(1000)
   }
 }
 
-export default tickClock;
+export default tickClock

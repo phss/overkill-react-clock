@@ -5,7 +5,9 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'standard'
+    'prettier',
+    'standard',
+    'plugin:jest/recommended'
   ],
   globals: {
     Atomics: 'readonly',
