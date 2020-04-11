@@ -1,13 +1,23 @@
 import * as React from 'react'
-import TickingClock from './TickingClock'
-import PartOfDayContainer from './PartOfDayContainer'
+import { connect } from 'react-redux'
+import { TimeState } from '../reducers/timeKeeper'
+import { Clock } from '../components/Clock'
+import { PartOfDay } from '../components/PartOfDay'
 
-export const App = () => {
+export interface TimeProps {
+  time: Date
+}
+
+const AppComponent = (props: TimeProps) => {
   return (
     <div>
       <h1>Overkill React Clock</h1>
-      <TickingClock />
-      <PartOfDayContainer />
+      <Clock {...props} />
+      <PartOfDay {...props} />
     </div>
   )
 }
+
+const mapStateToProps = ({ time }: TimeState): TimeProps => ({ time })
+
+export const App = connect(mapStateToProps)(AppComponent)

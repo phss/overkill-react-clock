@@ -2,16 +2,17 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { App } from './App'
-import TickingClock from './TickingClock'
-import PartOfDayContainer from './PartOfDayContainer'
+import { Clock } from '../components/Clock'
+import { PartOfDay } from '../components/PartOfDay'
 import { timeKeeper } from '../reducers/timeKeeper'
 
 describe('App', () => {
+  const testStore = createStore(timeKeeper)
+
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    const testStore = createStore(timeKeeper)
     ReactDOM.render(
       <Provider store={testStore}>
         <App></App>
@@ -21,13 +22,20 @@ describe('App', () => {
     expect(div.textContent).toContain('Overkill React Clock')
   })
 
-  it('contains a Clock', () => {
-    const component = shallow(<App />)
-    expect(component.find(TickingClock).length).toBe(1)
-  })
+  it('updates on UPDATE_CLOCK action', () => {
+    const component = mount(
+      <Provider store={testStore}>
+        <App></App>
+      </Provider>
+    )
+    const date = new Date(2018, 2, 11, 16, 30, 7)
 
-  it('contains a PartOfDay', () => {
-    const component = shallow(<App />)
-    expect(component.find(PartOfDayContainer).length).toBe(1)
+    testStore.dispatch({
+      type: 'UPDATE_CLOCK',
+      time: date
+    })
+
+    expect(component.find(Clock).text()).toBe(date.toLocaleTimeString())
+    expect(component.find(PartOfDay).text()).toBe('It is afternoon')
   })
 })
