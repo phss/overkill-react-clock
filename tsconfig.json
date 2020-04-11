@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "outDir": "build"
+    "outDir": "build",
+    "strictNullChecks": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
