@@ -11,7 +11,7 @@ const AppComponent = (props: TimeProps) => {
       <h1>Overkill React Clock</h1>
       <Clock {...props} />
       <PartOfDay {...props} />
-      <ClosablePanel title="Configuration" open={true}>
+      <ClosablePanel title="Configuration" open={false}>
         <p>Hello there</p>
       </ClosablePanel>
     </div>
