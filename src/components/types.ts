@@ -3,6 +3,7 @@ export interface TimeProps {
 }
 
 export interface ClosablePanelProps {
+  title: string
   open: boolean
   children?: React.ReactNode
 }
