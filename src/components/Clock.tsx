@@ -1,9 +1,6 @@
 import * as React from 'react'
+import { TimeProps } from './types'
 
-export interface ClockProps {
-  time: Date
-}
-
-export const Clock = ({ time }: ClockProps) => (
+export const Clock = ({ time }: TimeProps) => (
   <p className="clock">{time.toLocaleTimeString()}</p>
 )

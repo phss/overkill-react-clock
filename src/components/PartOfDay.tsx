@@ -1,8 +1,5 @@
 import * as React from 'react'
-
-export interface PartOfDayProps {
-  time: Date
-}
+import { TimeProps } from './types'
 
 const partAt = (time: Date) => {
   const hour = time.getHours()
@@ -17,6 +14,6 @@ const partAt = (time: Date) => {
   return 'night'
 }
 
-export const PartOfDay = ({ time }: PartOfDayProps) => (
+export const PartOfDay = ({ time }: TimeProps) => (
   <p className="partOfDay">It is {partAt(time)}</p>
 )
