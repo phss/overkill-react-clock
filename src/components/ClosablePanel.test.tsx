@@ -50,4 +50,26 @@ describe('ClosablePanel component', () => {
       ).toBeTruthy()
     })
   })
+
+  describe('toggling', () => {
+    it('closes an open panel by clicking the title', () => {
+      const component = shallow(
+        <ClosablePanel title="toggletest" open={true} />
+      )
+
+      component.find('.title').simulate('click')
+      expect(component.hasClass('closed')).toBeTruthy()
+      expect(component.hasClass('open')).toBeFalsy()
+    })
+
+    it('opens a closed panel by clicking the title', () => {
+      const component = shallow(
+        <ClosablePanel title="toggletest" open={false} />
+      )
+
+      component.find('.title').simulate('click')
+      expect(component.hasClass('open')).toBeTruthy()
+      expect(component.hasClass('closed')).toBeFalsy()
+    })
+  })
 })
