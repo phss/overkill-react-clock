@@ -8,18 +8,18 @@
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #ddd;
-    background-color: #050505;
+    color: #fff;
+    background-color: #050505e5;
     text-align: center;
     font-size: 200%;
 }
 
 .clock {
     font-family: "Orbitron";
-    color: green;
+    color: rgb(40, 182, 27);
     font-size: 200%;
 }
 
 .partOfDay {
-    color: gray;
+    color: rgba(255, 255, 255, 0.7)
 }
