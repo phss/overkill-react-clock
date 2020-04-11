@@ -24,6 +24,6 @@ body {
     color: rgba(255, 255, 255, 0.7)
 }
 
-.closable-panel.closed {
+.closable-panel.closed .children {
     display: none;
 }

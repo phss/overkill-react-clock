@@ -18,7 +18,7 @@ export const ClosablePanel = ({
       <div className="title" onClick={togglePanel}>
         {title}
       </div>
-      {children}
+      <div className="children">{children}</div>
     </div>
   )
 }
