@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faCog } from '@fortawesome/free-solid-svg-icons'
 import { TimeState } from '../reducers/timeKeeper'
 import { Clock, PartOfDay } from '../components'
 import { TimeProps } from '../components/types'
@@ -21,7 +21,7 @@ const AppComponent = (props: TimeProps) => (
     <Title />
     <Clock {...props} />
     <PartOfDay {...props} />
-    <ClosablePanel title="Configuration" open={false}>
+    <ClosablePanel title="Configuration" icon={faCog} open={false}>
       <p>Hello there</p>
     </ClosablePanel>
   </div>

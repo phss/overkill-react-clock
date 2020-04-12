@@ -3,9 +3,11 @@ import * as React from 'react'
 import { useState } from 'react'
 import { ClosablePanelProps } from './types'
 import './ClosablePanel.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const ClosablePanel = ({
   title,
+  icon,
   open,
   children
 }: ClosablePanelProps) => {
@@ -18,6 +20,7 @@ export const ClosablePanel = ({
     <div className={classes}>
       <div className="title" onClick={togglePanel}>
         {title}
+        {icon && <FontAwesomeIcon icon={icon} />}
       </div>
       <div className="children">{children}</div>
     </div>

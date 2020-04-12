@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { ClosablePanel } from './ClosablePanel'
+import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 describe('ClosablePanel component', () => {
   describe('className', () => {
@@ -30,6 +32,26 @@ describe('ClosablePanel component', () => {
       )
 
       expect(component.find('.title').text()).toEqual('Some panel')
+      expect(component.find('.title').find(FontAwesomeIcon)).toEqual({})
+    })
+
+    it('renders title with icon', () => {
+      const component = shallow(
+        <ClosablePanel
+          title="Some panel with icon"
+          icon={faCloudMoon}
+          open={true}
+        />
+      )
+
+      expect(component.find('.title').text()).toEqual(
+        'Some panel with icon<FontAwesomeIcon />'
+      )
+      expect(
+        component
+          .find('.title')
+          .contains(<FontAwesomeIcon icon={faCloudMoon} />)
+      ).toBeTruthy()
     })
   })
 
