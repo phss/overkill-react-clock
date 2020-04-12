@@ -13,17 +13,3 @@ body {
     text-align: center;
     font-size: 200%;
 }
-
-.clock {
-    font-family: "Orbitron";
-    color: rgb(40, 182, 27);
-    font-size: 200%;
-}
-
-.partOfDay {
-    color: rgba(255, 255, 255, 0.7)
-}
-
-.closable-panel.closed .children {
-    display: none;
-}

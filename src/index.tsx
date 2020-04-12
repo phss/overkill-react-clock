@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { timeKeeper } from './reducers/timeKeeper'
 import { tickClock } from './sagas/tickClock'
 import { App } from './containers/App'
-import './styles/index.css'
+import './index.css'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(

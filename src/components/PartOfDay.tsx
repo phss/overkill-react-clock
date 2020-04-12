@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { TimeProps } from './types'
+import './Clock.css'
+import './PartOfDay.css'
 
 const partAt = (time: Date) => {
   const hour = time.getHours()

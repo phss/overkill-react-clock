@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { ClosablePanelProps } from './types'
+import './ClosablePanel.css'
 
 export const ClosablePanel = ({
   title,

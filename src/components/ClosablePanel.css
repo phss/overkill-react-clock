@@ -1,0 +1,3 @@
+.closable-panel.closed .children {
+    display: none;
+}
