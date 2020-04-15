@@ -20,7 +20,7 @@ export const ClosablePanel = ({
     <div className={classes}>
       <div className="title" onClick={togglePanel}>
         {title}
-        {icon && <FontAwesomeIcon icon={icon} />}
+        {icon && <FontAwesomeIcon data-testid="icon" icon={icon} />}
       </div>
       <div className="children">{children}</div>
     </div>

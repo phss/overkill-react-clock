@@ -1,7 +1,7 @@
 module.exports = {
-  roots: [ "./src" ],
-  setupFilesAfterEnv: [ "./src/setupTests.ts" ],
+  roots: ['./src'],
+  setupFilesAfterEnv: ['./src/setupTests.ts'],
   moduleNameMapper: {
-    "\\.(css|less)$": "identity-obj-proxy"
+    '\\.(css|less)$': 'identity-obj-proxy'
   }
-};
+}

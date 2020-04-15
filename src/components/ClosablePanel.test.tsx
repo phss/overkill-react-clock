@@ -1,42 +1,47 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
 import { ClosablePanel } from './ClosablePanel'
 import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { render, fireEvent } from '@testing-library/react'
+import { readFileSync } from 'fs'
+import { resolve } from 'path'
 
 describe('ClosablePanel component', () => {
   describe('className', () => {
     it('can be open', () => {
-      const component = shallow(<ClosablePanel title="classtest" open={true} />)
+      const { container, getByText } = render(
+        <ClosablePanel title="classtest" open={true}>
+          Inside the panel
+        </ClosablePanel>
+      )
+      appendCss(container)
 
-      expect(component.hasClass('closable-panel')).toBeTruthy()
-      expect(component.hasClass('open')).toBeTruthy()
-      expect(component.hasClass('closed')).toBeFalsy()
+      expect(getByText('Inside the panel')).toBeVisible()
     })
 
     it('can be closed', () => {
-      const component = shallow(
-        <ClosablePanel title="classtest" open={false} />
+      const { container, getByText } = render(
+        <ClosablePanel title="classtest" open={false}>
+          Inside the panel
+        </ClosablePanel>
       )
+      appendCss(container)
 
-      expect(component.hasClass('closable-panel')).toBeTruthy()
-      expect(component.hasClass('closed')).toBeTruthy()
-      expect(component.hasClass('open')).toBeFalsy()
+      expect(getByText('Inside the panel')).not.toBeVisible()
     })
   })
 
   describe('title', () => {
     it('renders title', () => {
-      const component = shallow(
+      const { getByText, queryByTestId } = render(
         <ClosablePanel title="Some panel" open={true} />
       )
 
-      expect(component.find('.title').text()).toEqual('Some panel')
-      expect(component.find('.title').find(FontAwesomeIcon)).toEqual({})
+      expect(getByText('Some panel')).toBeInTheDocument()
+      expect(queryByTestId('icon')).not.toBeInTheDocument()
     })
 
     it('renders title with icon', () => {
-      const component = shallow(
+      const { getByText, getByTestId } = render(
         <ClosablePanel
           title="Some panel with icon"
           icon={faCloudMoon}
@@ -44,54 +49,58 @@ describe('ClosablePanel component', () => {
         />
       )
 
-      expect(component.find('.title').text()).toEqual(
-        'Some panel with icon<FontAwesomeIcon />'
-      )
-      expect(
-        component
-          .find('.title')
-          .contains(<FontAwesomeIcon icon={faCloudMoon} />)
-      ).toBeTruthy()
+      expect(getByText('Some panel with icon')).toBeInTheDocument()
+      expect(getByTestId('icon')).toBeInTheDocument()
     })
   })
 
   describe('children', () => {
     it('renders children inside', () => {
-      const component = shallow(
+      const { getByText } = render(
         <ClosablePanel title="childrentest" open={false}>
           <p>This should be inside</p>
           <p>So should this</p>
         </ClosablePanel>
       )
 
-      expect(
-        component.containsAllMatchingElements([
-          <p key="">This should be inside</p>,
-          <p key="">So should this</p>
-        ])
-      ).toBeTruthy()
+      expect(getByText('This should be inside')).toBeInTheDocument()
+      expect(getByText('So should this')).toBeInTheDocument()
     })
   })
 
   describe('toggling', () => {
     it('closes an open panel by clicking the title', () => {
-      const component = shallow(
-        <ClosablePanel title="toggletest" open={true} />
+      const { container, getByText } = render(
+        <ClosablePanel title="toggletest" open={true}>
+          Inside the panel
+        </ClosablePanel>
       )
+      appendCss(container)
 
-      component.find('.title').simulate('click')
-      expect(component.hasClass('closed')).toBeTruthy()
-      expect(component.hasClass('open')).toBeFalsy()
+      fireEvent.click(getByText('toggletest'))
+      expect(getByText('Inside the panel')).not.toBeVisible()
     })
 
     it('opens a closed panel by clicking the title', () => {
-      const component = shallow(
-        <ClosablePanel title="toggletest" open={false} />
+      const { container, getByText } = render(
+        <ClosablePanel title="toggletest" open={false}>
+          Inside the panel
+        </ClosablePanel>
       )
+      appendCss(container)
 
-      component.find('.title').simulate('click')
-      expect(component.hasClass('open')).toBeTruthy()
-      expect(component.hasClass('closed')).toBeFalsy()
+      fireEvent.click(getByText('toggletest'))
+      expect(getByText('Inside the panel')).toBeVisible()
     })
   })
+
+  const appendCss = (container: HTMLElement) => {
+    const cssFile = readFileSync(
+      resolve(__dirname, './ClosablePanel.css')
+    ).toString()
+    const style = document.createElement('style')
+    style.type = 'text/css'
+    style.append(cssFile)
+    container.append(style)
+  }
 })

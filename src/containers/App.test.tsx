@@ -2,9 +2,8 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { mount } from 'enzyme'
+import { render } from '@testing-library/react'
 import { App } from './App'
-import { Clock, PartOfDay } from '../components'
 import { timeKeeper } from '../reducers/timeKeeper'
 
 describe('App', () => {
@@ -22,7 +21,7 @@ describe('App', () => {
   })
 
   it('updates on UPDATE_CLOCK action', () => {
-    const component = mount(
+    const { getByText } = render(
       <Provider store={testStore}>
         <App></App>
       </Provider>
@@ -34,7 +33,7 @@ describe('App', () => {
       time: date
     })
 
-    expect(component.find(Clock).text()).toBe(date.toLocaleTimeString())
-    expect(component.find(PartOfDay).text()).toBe('It is afternoon')
+    expect(getByText(date.toLocaleTimeString())).toBeInTheDocument()
+    expect(getByText('It is afternoon')).toBeInTheDocument()
   })
 })
