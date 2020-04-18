@@ -1,4 +1,4 @@
-import type { UpdateClockAction } from '../actions/updateClock'
+import type { UpdateClockAction } from './actions'
 
 export interface TimeState {
   time: Date

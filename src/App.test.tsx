@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { render } from '@testing-library/react'
 import { App } from './App'
-import { timeKeeper } from '../reducers/timeKeeper'
+import { timeKeeper } from './Clock/reducers'
 
 describe('App', () => {
   const testStore = createStore(timeKeeper)

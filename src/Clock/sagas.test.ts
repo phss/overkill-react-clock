@@ -1,4 +1,4 @@
-import { tickClock } from './tickClock'
+import { tickClock } from './sagas'
 import { delay } from 'redux-saga/effects'
 
 describe('Saga', () => {

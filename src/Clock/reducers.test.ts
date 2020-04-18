@@ -1,5 +1,5 @@
-import { timeKeeper } from './timeKeeper'
-import { UpdateClockAction } from '../actions/updateClock'
+import { timeKeeper } from './reducers'
+import { UpdateClockAction } from './actions'
 
 describe('Reducers', () => {
   it('has initial state', () => {

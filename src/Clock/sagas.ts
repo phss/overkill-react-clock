@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime'
 import { put, delay } from 'redux-saga/effects'
-import { updateClock } from '../actions/updateClock'
+import { updateClock } from './actions'
 
 export function* tickClock() {
   while (true) {
