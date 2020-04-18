@@ -65,3 +65,4 @@ Start the application
 - [Move clock ticking logic to a saga](4241bd358923a46bbdbafc4dca40c86689670050)
 - [Convert to typescript](103f76ea5ec7af5c1228f09aae4455e9b7b1317f)
 - [Dockerize building and running the app](444bc93469eab1e353ece64327ac6b09d5fb571e)
+- [Refactor directory structure into components](432f670d0fa403259ebafe38bae5f4fd28eb33dd)
