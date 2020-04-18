@@ -1,8 +1,15 @@
 import * as React from 'react'
 import { useState } from 'react'
-import { ClosablePanelProps } from './types'
-import './ClosablePanel.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import './ClosablePanel.css'
+
+interface ClosablePanelProps {
+  title: string
+  icon?: IconDefinition
+  open: boolean
+  children?: React.ReactNode
+}
 
 export const ClosablePanel = ({
   title,
