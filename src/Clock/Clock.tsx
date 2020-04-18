@@ -1,16 +1,16 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 import { Time } from './types'
 import { TimeDisplay } from './TimeDisplay'
 import { PartOfDay } from './PartOfDay'
+import { useSelector } from 'react-redux'
 
-const ClockComponent = (props: Time) => (
-  <div>
-    <TimeDisplay {...props} />
-    <PartOfDay {...props} />
-  </div>
-)
+export const Clock = () => {
+  const time: Time = useSelector((state: Time) => state)
 
-const mapStateToProps = (time: Time): Time => time
-
-export const Clock = connect(mapStateToProps)(ClockComponent)
+  return (
+    <div>
+      <TimeDisplay {...time} />
+      <PartOfDay {...time} />
+    </div>
+  )
+}
