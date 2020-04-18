@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faCog } from '@fortawesome/free-solid-svg-icons'
+import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { Clock } from './Clock'
-import { ClosablePanel } from './Configuration/ClosablePanel'
+import { Configuration } from './Configuration'
 import './App.css'
 
 const Title = () => (
@@ -17,8 +17,6 @@ export const App = () => (
   <div>
     <Title />
     <Clock />
-    <ClosablePanel title="Configuration" icon={faCog} open={false}>
-      <p>Hello there</p>
-    </ClosablePanel>
+    <Configuration />
   </div>
 )
