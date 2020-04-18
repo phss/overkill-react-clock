@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { TimeProps } from './types'
+import { Time } from './types'
 import './Clock.css'
 import './PartOfDay.css'
 
@@ -16,6 +16,6 @@ const partAt = (time: Date) => {
   return 'night'
 }
 
-export const PartOfDay = ({ time }: TimeProps) => (
+export const PartOfDay = ({ time }: Time) => (
   <p className="partOfDay">It is {partAt(time)}</p>
 )

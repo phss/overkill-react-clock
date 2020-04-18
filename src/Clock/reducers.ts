@@ -1,17 +1,14 @@
 import type { UpdateClockAction } from './actions'
-
-export interface TimeState {
-  time: Date
-}
+import { Time } from './types'
 
 const initialState = {
   time: new Date()
 }
 
 export const timeKeeper = (
-  state: TimeState = initialState,
+  state: Time = initialState,
   { type, time }: UpdateClockAction
-): TimeState => {
+): Time => {
   switch (type) {
     case 'UPDATE_CLOCK':
       return { time }

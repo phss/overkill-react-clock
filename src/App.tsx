@@ -2,9 +2,8 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faCog } from '@fortawesome/free-solid-svg-icons'
-import { TimeState } from './Clock/reducers'
 import { Clock, PartOfDay } from './Clock'
-import { TimeProps } from './Clock/types'
+import { Time } from './Clock/types'
 import { ClosablePanel } from './Configuration/ClosablePanel'
 import './App.css'
 
@@ -16,7 +15,7 @@ const Title = () => (
   </h1>
 )
 
-const AppComponent = (props: TimeProps) => (
+const AppComponent = (props: Time) => (
   <div>
     <Title />
     <Clock {...props} />
@@ -27,6 +26,6 @@ const AppComponent = (props: TimeProps) => (
   </div>
 )
 
-const mapStateToProps = ({ time }: TimeState): TimeProps => ({ time })
+const mapStateToProps = (time: Time): Time => time
 
 export const App = connect(mapStateToProps)(AppComponent)
