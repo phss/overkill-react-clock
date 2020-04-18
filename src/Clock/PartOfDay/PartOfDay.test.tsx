@@ -1,6 +1,6 @@
+import { render } from '@testing-library/react'
 import * as React from 'react'
 import { PartOfDay } from './PartOfDay'
-import { render } from '@testing-library/react'
 
 describe('PartOfDay component', () => {
   const componentAtTime = (hour: number, minute: number) => {

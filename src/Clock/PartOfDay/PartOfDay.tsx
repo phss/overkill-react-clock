@@ -1,6 +1,9 @@
 import * as React from 'react'
-import { Time } from '../types'
 import './PartOfDay.css'
+
+interface PartOfDayProps {
+  time: Date
+}
 
 const partAt = (time: Date) => {
   const hour = time.getHours()
@@ -15,6 +18,6 @@ const partAt = (time: Date) => {
   return 'night'
 }
 
-export const PartOfDay = ({ time }: Time) => (
+export const PartOfDay = ({ time }: PartOfDayProps) => (
   <p className="partOfDay">It is {partAt(time)}</p>
 )

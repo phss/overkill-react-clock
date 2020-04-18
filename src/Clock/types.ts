@@ -1,3 +1,3 @@
-export interface Time {
+export interface ClockState {
   time: Date
 }

@@ -1,7 +1,10 @@
 import * as React from 'react'
-import { Time } from '../types'
 import './TimeDisplay.css'
 
-export const TimeDisplay = ({ time }: Time) => (
+interface TimeDisplayProps {
+  time: Date
+}
+
+export const TimeDisplay = ({ time }: TimeDisplayProps) => (
   <p className="clock">{time.toLocaleTimeString()}</p>
 )
