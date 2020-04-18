@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { TimeDisplay } from './TimeDisplay'
+import { Clock } from './Clock'
 import { render } from '@testing-library/react'
 
-describe('TimeDisplay component', () => {
+describe('Clock component', () => {
   it('contains the specified time', () => {
     const date = new Date(2018, 2, 11, 11, 49, 13)
-    const { getByText } = render(<TimeDisplay time={date} />)
+    const { getByText } = render(<Clock time={date} />)
 
     expect(getByText(date.toLocaleTimeString())).toBeInTheDocument()
+    expect(getByText('It is morning')).toBeInTheDocument()
   })
 })
