@@ -1,4 +1,4 @@
-import { Clock } from './Clock'
-import { PartOfDay } from './PartOfDay'
+import { TimeDisplay } from './TimeDisplay/TimeDisplay'
+import { PartOfDay } from './PartOfDay/PartOfDay'
 
-export { Clock, PartOfDay }
+export { TimeDisplay, PartOfDay }

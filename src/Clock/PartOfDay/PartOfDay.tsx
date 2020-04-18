@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { Time } from './types'
-import './Clock.css'
+import { Time } from '../types'
 import './PartOfDay.css'
 
 const partAt = (time: Date) => {
