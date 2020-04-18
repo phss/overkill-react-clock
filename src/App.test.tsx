@@ -4,10 +4,10 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { render } from '@testing-library/react'
 import { App } from './App'
-import { timeKeeper } from './Clock/reducers'
+import clockReducer from './Clock/reducers'
 
 describe('App', () => {
-  const testStore = createStore(timeKeeper)
+  const testStore = createStore(clockReducer)
 
   it('renders without crashing', () => {
     const div = document.createElement('div')

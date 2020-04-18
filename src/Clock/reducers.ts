@@ -19,3 +19,5 @@ export const timeKeeper = (
       return state
   }
 }
+
+export default timeKeeper

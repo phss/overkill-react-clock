@@ -1,9 +1,9 @@
-import { timeKeeper } from './reducers'
+import reducer from './reducers'
 import { UpdateClockAction } from './actions'
 
-describe('Reducers', () => {
+describe('Reducer', () => {
   it('has initial state', () => {
-    expect(timeKeeper(undefined, {} as any).time).toBeDefined()
+    expect(reducer(undefined, {} as any).time).toBeDefined()
   })
 
   it('updates with latest time', () => {
@@ -16,7 +16,7 @@ describe('Reducers', () => {
       time: newTime
     } as UpdateClockAction
 
-    expect(timeKeeper(state, action)).toEqual({
+    expect(reducer(state, action)).toEqual({
       time: newTime
     })
   })

@@ -3,14 +3,14 @@ import * as ReactDOM from 'react-dom'
 import { compose, createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
-import { timeKeeper } from './Clock/reducers'
-import { tickClock } from './Clock/sagas'
+import clockReducer from './Clock/reducers'
+import clockSaga from './Clock/sagas'
 import { App } from './App'
 import './index.css'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
-  timeKeeper,
+  clockReducer,
   compose(
     applyMiddleware(sagaMiddleware),
     // @ts-ignore
@@ -25,4 +25,4 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-sagaMiddleware.run(tickClock)
+sagaMiddleware.run(clockSaga)

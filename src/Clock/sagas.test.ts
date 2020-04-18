@@ -1,9 +1,9 @@
-import { tickClock } from './sagas'
+import saga from './sagas'
 import { delay } from 'redux-saga/effects'
 
 describe('Saga', () => {
   it('tick clock every second', () => {
-    const gen = tickClock()
+    const gen = saga()
 
     expect(gen.next().value).toMatchObject({
       type: 'PUT',

@@ -8,3 +8,5 @@ export function* tickClock() {
     yield delay(1000)
   }
 }
+
+export default tickClock
