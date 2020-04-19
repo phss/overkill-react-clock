@@ -6,7 +6,7 @@ import { Clock } from './Clock'
 import reducer from './reducers'
 
 describe('Clock component', () => {
-  it('renders clock', () => {
+  it.skip('renders clock', () => {
     const date = new Date(2018, 2, 11, 11, 49, 13)
     const testStore = createStore(reducer, { time: date })
     const { asFragment } = render(
