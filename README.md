@@ -67,3 +67,4 @@ Start the application
 - [Dockerize building and running the app](444bc93469eab1e353ece64327ac6b09d5fb571e)
 - [Refactor directory structure into components](432f670d0fa403259ebafe38bae5f4fd28eb33dd)
 - [Introduce snapshot testing](0d828f1e0bc497d169857acf0d1e01eae4dcc712)
+- [Add storybooks](0f4ad976f6e139c84caf9acf1c8b48e3c69f57a5)
