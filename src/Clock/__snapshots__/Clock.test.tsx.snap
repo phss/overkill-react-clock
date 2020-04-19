@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Clock component renders clock 1`] = `
+<DocumentFragment>
+  <div>
+    <p
+      class="clock"
+    >
+      11:49:13
+    </p>
+    <p
+      class="partOfDay"
+    >
+      It is morning
+    </p>
+  </div>
+</DocumentFragment>
+`;

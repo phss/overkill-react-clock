@@ -3,9 +3,9 @@ import { Configuration } from './Configuration'
 import { render } from '@testing-library/react'
 
 describe('Configuration component', () => {
-  it('contains the specified time', () => {
-    const { getByText } = render(<Configuration />)
+  it('matches snapshot', () => {
+    const { asFragment } = render(<Configuration />)
 
-    expect(getByText('Hello there')).toBeInTheDocument()
+    expect(asFragment()).toMatchSnapshot()
   })
 })
