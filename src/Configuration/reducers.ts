@@ -1,4 +1,5 @@
 import { ConfigurationState } from './types'
+import { AnyAction } from 'redux'
 
 const initialState = {
   format: 'HH:mm:ss'
@@ -6,9 +7,14 @@ const initialState = {
 
 export const configurationReducer = (
   state: ConfigurationState = initialState,
-  action: any
+  action: AnyAction
 ): ConfigurationState => {
-  return state
+  switch (action.type) {
+    case 'UPDATE_FORMAT':
+      return { ...state, format: action.format }
+    default:
+      return state
+  }
 }
 
 export default configurationReducer
