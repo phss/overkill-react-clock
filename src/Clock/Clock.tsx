@@ -6,13 +6,13 @@ import { CombinedState } from '../types'
 
 export const Clock = () => {
   const time = useSelector((state: CombinedState) => state.clock.time)
-  const format = useSelector(
-    (state: CombinedState) => state.configuration.format
+  const { format, timezone } = useSelector(
+    (state: CombinedState) => state.configuration
   )
 
   return (
     <div>
-      <TimeDisplay time={time} format={format} />
+      <TimeDisplay time={time} format={format} timezone={timezone} />
       <PartOfDay time={time} />
     </div>
   )

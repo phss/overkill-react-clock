@@ -14,7 +14,10 @@ describe('Clock component', () => {
         clock: reducer,
         configuration: configurationReducer
       }),
-      { clock: { time: date }, configuration: { format: 'HH:mm:ss' } }
+      {
+        clock: { time: date },
+        configuration: { format: 'HH:mm:ss', timezone: 'America/New_York' }
+      }
     )
     const { asFragment } = render(
       <Provider store={testStore}>
@@ -31,7 +34,7 @@ describe('Clock component', () => {
         clock: reducer,
         configuration: configurationReducer
       }),
-      { configuration: { format: 'h:mm:ss A' } }
+      { configuration: { format: 'h:mm:ss A', timezone: 'Zulu' } }
     )
     const { getByText } = render(
       <Provider store={testStore}>

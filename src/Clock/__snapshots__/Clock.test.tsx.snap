@@ -6,7 +6,7 @@ exports[`Clock component renders clock 1`] = `
     <p
       class="clock"
     >
-      11:49:13
+      07:49:13
     </p>
     <p
       class="partOfDay"
