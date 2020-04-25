@@ -8,4 +8,10 @@ describe('Configuration component', () => {
 
     expect(asFragment()).toMatchSnapshot()
   })
+
+  it('renders locale selector', () => {
+    const { getByText } = render(<Configuration />)
+
+    expect(getByText('en-US')).toBeInTheDocument()
+  })
 })

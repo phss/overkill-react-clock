@@ -29,9 +29,23 @@ exports[`Configuration component matches snapshot 1`] = `
     <div
       class="children"
     >
-      <p>
-        Hello there
-      </p>
+      <div>
+        <label
+          for="locale"
+        >
+          Locale
+        </label>
+        <select
+          id="locale"
+        >
+          <option>
+            en-US
+          </option>
+          <option>
+            en-UK
+          </option>
+        </select>
+      </div>
     </div>
   </div>
 </DocumentFragment>
