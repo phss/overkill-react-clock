@@ -9,7 +9,7 @@ export const Clock = () => {
 
   return (
     <div>
-      <TimeDisplay time={time} />
+      <TimeDisplay time={time} format="HH:mm:ss" />
       <PartOfDay time={time} />
     </div>
   )

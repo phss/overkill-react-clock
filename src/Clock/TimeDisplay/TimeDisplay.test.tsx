@@ -5,8 +5,8 @@ import { render } from '@testing-library/react'
 describe('TimeDisplay component', () => {
   it('contains the specified time', () => {
     const date = new Date(2018, 2, 11, 11, 49, 13)
-    const { getByText } = render(<TimeDisplay time={date} />)
+    const { getByText } = render(<TimeDisplay time={date} format="hh:mm A" />)
 
-    expect(getByText('11:49:13')).toBeInTheDocument()
+    expect(getByText('11:49 AM')).toBeInTheDocument()
   })
 })

@@ -4,8 +4,9 @@ import './TimeDisplay.css'
 
 interface TimeDisplayProps {
   time: Date
+  format: string
 }
 
-export const TimeDisplay = ({ time }: TimeDisplayProps) => (
-  <p className="clock">{moment(time).format('HH:mm:ss')}</p>
+export const TimeDisplay = ({ time, format }: TimeDisplayProps) => (
+  <p className="clock">{moment(time).format(format)}</p>
 )
