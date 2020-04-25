@@ -1,5 +1,6 @@
 import reducer from './reducers'
 import { UpdateFormatAction, UpdateTimezoneAction } from './actions'
+import { ConfigurationState } from './types'
 
 describe('Reducer', () => {
   it('has initial state', () => {
@@ -12,8 +13,8 @@ describe('Reducer', () => {
     const state = {
       format: 'HH:mm:ss',
       timezone: 'Some timezone'
-    }
-    const newFormat = 'hh:mm A'
+    } as ConfigurationState
+    const newFormat = 'h:mm A'
     const action = {
       type: 'UPDATE_FORMAT',
       format: newFormat
@@ -26,7 +27,7 @@ describe('Reducer', () => {
     const state = {
       format: 'HH:mm:ss',
       timezone: 'Initial'
-    }
+    } as ConfigurationState
     const newTimezone = 'New'
     const action = {
       type: 'UPDATE_TIMEZONE',

@@ -6,7 +6,7 @@ import 'moment-timezone'
 const initialState = {
   format: 'HH:mm:ss',
   timezone: moment.tz.guess()
-}
+} as ConfigurationState
 
 export const configurationReducer = (
   state: ConfigurationState = initialState,

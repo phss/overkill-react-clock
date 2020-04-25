@@ -1,11 +1,13 @@
+import { Format } from './types'
+
 export type UpdateFormat = 'UPDATE_FORMAT'
 
 export interface UpdateFormatAction {
   type: UpdateFormat
-  format: string
+  format: Format
 }
 
-export const updateFormat = (newFormat: string): UpdateFormatAction => ({
+export const updateFormat = (newFormat: Format): UpdateFormatAction => ({
   type: 'UPDATE_FORMAT',
   format: newFormat
 })
