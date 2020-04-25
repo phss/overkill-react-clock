@@ -1,20 +1,49 @@
 import * as React from 'react'
+import configureStore from 'redux-mock-store'
+import { render, fireEvent } from '@testing-library/react'
+import { Provider } from 'react-redux'
 import { Configuration } from './Configuration'
-import { render } from '@testing-library/react'
 
 describe('Configuration component', () => {
+  const mockStore = configureStore([])({})
+  const renderComponent = () =>
+    render(
+      <Provider store={mockStore}>
+        <Configuration />
+      </Provider>
+    )
+
   it('matches snapshot', () => {
-    const { asFragment } = render(<Configuration />)
+    const { asFragment } = renderComponent()
 
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('renders format selector', () => {
-    const { getByText } = render(<Configuration />)
+  describe('format', () => {
+    it('renders format selector', () => {
+      const { getByText } = renderComponent()
 
-    expect(getByText('HH:mm:ss')).toBeInTheDocument()
-    expect(getByText('hh:mm:ss A')).toBeInTheDocument()
-    expect(getByText('HH:mm')).toBeInTheDocument()
-    expect(getByText('hh:mm A')).toBeInTheDocument()
+      expect(getByText('HH:mm:ss')).toBeInTheDocument()
+      expect(getByText('hh:mm:ss A')).toBeInTheDocument()
+      expect(getByText('HH:mm')).toBeInTheDocument()
+      expect(getByText('hh:mm A')).toBeInTheDocument()
+    })
+
+    it('dispatches action when selecting format', () => {
+      const { getByLabelText } = renderComponent()
+
+      fireEvent.change(getByLabelText('Format'), {
+        target: {
+          value: 'HH:mm'
+        }
+      })
+
+      expect(mockStore.getActions()).toEqual([
+        {
+          type: 'UPDATE_FORMAT',
+          format: 'HH:mm'
+        }
+      ])
+    })
   })
 })
