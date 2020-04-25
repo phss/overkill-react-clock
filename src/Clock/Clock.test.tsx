@@ -5,6 +5,7 @@ import { createStore, combineReducers } from 'redux'
 import { Clock } from './Clock'
 import reducer from './reducers'
 import configurationReducer from '../Configuration/reducers'
+import { updateClock } from './actions'
 
 describe('Clock component', () => {
   it('renders clock', () => {
@@ -43,10 +44,7 @@ describe('Clock component', () => {
     )
     const newDate = new Date(2018, 2, 11, 16, 30, 7)
 
-    testStore.dispatch({
-      type: 'UPDATE_CLOCK',
-      time: newDate
-    })
+    testStore.dispatch(updateClock(newDate))
 
     expect(getByText('4:30:07 PM')).toBeInTheDocument()
     expect(getByText('It is afternoon')).toBeInTheDocument()

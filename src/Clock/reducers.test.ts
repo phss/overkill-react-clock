@@ -1,5 +1,5 @@
 import reducer from './reducers'
-import { UpdateClockAction } from './actions'
+import { updateClock } from './actions'
 
 describe('Reducer', () => {
   it('has initial state', () => {
@@ -11,10 +11,7 @@ describe('Reducer', () => {
       time: new Date(2017, 12, 31)
     }
     const newTime = new Date()
-    const action = {
-      type: 'UPDATE_CLOCK',
-      time: newTime
-    } as UpdateClockAction
+    const action = updateClock(newTime)
 
     expect(reducer(state, action)).toEqual({
       time: newTime

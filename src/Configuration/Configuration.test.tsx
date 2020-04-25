@@ -3,6 +3,7 @@ import configureStore from 'redux-mock-store'
 import { render, fireEvent } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { Configuration } from './Configuration'
+import { updateFormat, updateTimezone } from './actions'
 
 describe('Configuration component', () => {
   let mockStore = configureStore([])({})
@@ -43,12 +44,7 @@ describe('Configuration component', () => {
         }
       })
 
-      expect(mockStore.getActions()).toEqual([
-        {
-          type: 'UPDATE_FORMAT',
-          format: 'HH:mm'
-        }
-      ])
+      expect(mockStore.getActions()).toEqual([updateFormat('HH:mm')])
     })
   })
 
@@ -69,12 +65,7 @@ describe('Configuration component', () => {
         }
       })
 
-      expect(mockStore.getActions()).toEqual([
-        {
-          type: 'UPDATE_TIMEZONE',
-          timezone: 'Zulu'
-        }
-      ])
+      expect(mockStore.getActions()).toEqual([updateTimezone('Zulu')])
     })
   })
 })

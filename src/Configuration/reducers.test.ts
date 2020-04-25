@@ -1,5 +1,5 @@
 import reducer from './reducers'
-import { UpdateFormatAction, UpdateTimezoneAction } from './actions'
+import { updateFormat, updateTimezone } from './actions'
 import { ConfigurationState } from './types'
 
 describe('Reducer', () => {
@@ -15,10 +15,7 @@ describe('Reducer', () => {
       timezone: 'Some timezone'
     } as ConfigurationState
     const newFormat = 'h:mm A'
-    const action = {
-      type: 'UPDATE_FORMAT',
-      format: newFormat
-    } as UpdateFormatAction
+    const action = updateFormat(newFormat)
 
     expect(reducer(state, action).format).toEqual(newFormat)
   })
@@ -29,10 +26,7 @@ describe('Reducer', () => {
       timezone: 'Initial'
     } as ConfigurationState
     const newTimezone = 'New'
-    const action = {
-      type: 'UPDATE_TIMEZONE',
-      timezone: newTimezone
-    } as UpdateTimezoneAction
+    const action = updateTimezone(newTimezone)
 
     expect(reducer(state, action).timezone).toEqual(newTimezone)
   })
