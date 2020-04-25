@@ -6,7 +6,7 @@ import { Clock } from './Clock'
 import reducer from './reducers'
 
 describe('Clock component', () => {
-  it.skip('renders clock', () => {
+  it('renders clock', () => {
     const date = new Date(2018, 2, 11, 11, 49, 13)
     const testStore = createStore(reducer, { time: date })
     const { asFragment } = render(
@@ -32,7 +32,7 @@ describe('Clock component', () => {
       time: newDate
     })
 
-    expect(getByText(newDate.toLocaleTimeString())).toBeInTheDocument()
+    expect(getByText('16:30:07')).toBeInTheDocument()
     expect(getByText('It is afternoon')).toBeInTheDocument()
   })
 })

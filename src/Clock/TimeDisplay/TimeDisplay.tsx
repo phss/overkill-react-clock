@@ -1,4 +1,5 @@
 import * as React from 'react'
+import moment from 'moment'
 import './TimeDisplay.css'
 
 interface TimeDisplayProps {
@@ -6,5 +7,5 @@ interface TimeDisplayProps {
 }
 
 export const TimeDisplay = ({ time }: TimeDisplayProps) => (
-  <p className="clock">{time.toLocaleTimeString()}</p>
+  <p className="clock">{moment(time).format('HH:mm:ss')}</p>
 )
