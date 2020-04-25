@@ -31,18 +31,24 @@ exports[`Configuration component matches snapshot 1`] = `
     >
       <div>
         <label
-          for="locale"
+          for="format"
         >
-          Locale
+          Format
         </label>
         <select
-          id="locale"
+          id="format"
         >
           <option>
-            en-US
+            HH:mm:ss
           </option>
           <option>
-            en-UK
+            hh:mm:ss A
+          </option>
+          <option>
+            HH:mm
+          </option>
+          <option>
+            hh:mm A
           </option>
         </select>
       </div>

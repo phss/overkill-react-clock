@@ -9,9 +9,12 @@ describe('Configuration component', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('renders locale selector', () => {
+  it('renders format selector', () => {
     const { getByText } = render(<Configuration />)
 
-    expect(getByText('en-US')).toBeInTheDocument()
+    expect(getByText('HH:mm:ss')).toBeInTheDocument()
+    expect(getByText('hh:mm:ss A')).toBeInTheDocument()
+    expect(getByText('HH:mm')).toBeInTheDocument()
+    expect(getByText('hh:mm A')).toBeInTheDocument()
   })
 })
