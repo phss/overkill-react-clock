@@ -5,7 +5,10 @@ import { PartOfDay } from './PartOfDay'
 describe('PartOfDay component', () => {
   const componentAtTime = (hour: number, minute: number) => {
     const { container } = render(
-      <PartOfDay time={new Date(2018, 2, 6, hour, minute, 0)} />
+      <PartOfDay
+        time={new Date(2018, 2, 6, hour, minute, 0)}
+        timezone="Europe/London"
+      />
     )
     return container.textContent
   }

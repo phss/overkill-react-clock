@@ -1,12 +1,15 @@
 import * as React from 'react'
+import moment from 'moment'
+import 'moment-timezone'
 import './PartOfDay.css'
 
 interface PartOfDayProps {
   time: Date
+  timezone: string
 }
 
-const partAt = (time: Date) => {
-  const hour = time.getHours()
+const partAt = (time: Date, timezone: string) => {
+  const hour = moment.tz(time, timezone).hour()
 
   if (hour >= 5 && hour < 12) {
     return 'morning'
@@ -18,6 +21,6 @@ const partAt = (time: Date) => {
   return 'night'
 }
 
-export const PartOfDay = ({ time }: PartOfDayProps) => (
-  <p className="partOfDay">It is {partAt(time)}</p>
+export const PartOfDay = ({ time, timezone }: PartOfDayProps) => (
+  <p className="partOfDay">It is {partAt(time, timezone)}</p>
 )

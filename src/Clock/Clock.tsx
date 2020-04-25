@@ -13,7 +13,7 @@ export const Clock = () => {
   return (
     <div>
       <TimeDisplay time={time} format={format} timezone={timezone} />
-      <PartOfDay time={time} />
+      <PartOfDay time={time} timezone={timezone} />
     </div>
   )
 }
