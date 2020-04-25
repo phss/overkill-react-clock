@@ -5,13 +5,18 @@ import { Provider } from 'react-redux'
 import { Configuration } from './Configuration'
 
 describe('Configuration component', () => {
-  const mockStore = configureStore([])({})
+  let mockStore = configureStore([])({})
+
   const renderComponent = () =>
     render(
       <Provider store={mockStore}>
         <Configuration />
       </Provider>
     )
+
+  beforeEach(() => {
+    mockStore = configureStore([])({})
+  })
 
   it('matches snapshot', () => {
     const { asFragment } = renderComponent()
@@ -53,6 +58,23 @@ describe('Configuration component', () => {
 
       expect(getByText('America/Los_Angeles')).toBeInTheDocument()
       expect(getByText('Zulu')).toBeInTheDocument()
+    })
+
+    it('dispatches action when selecting timezone', () => {
+      const { getByLabelText } = renderComponent()
+
+      fireEvent.change(getByLabelText('Timezone'), {
+        target: {
+          value: 'Zulu'
+        }
+      })
+
+      expect(mockStore.getActions()).toEqual([
+        {
+          type: 'UPDATE_TIMEZONE',
+          timezone: 'Zulu'
+        }
+      ])
     })
   })
 })
