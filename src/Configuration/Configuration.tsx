@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useState } from 'react'
 import { ClosablePanel } from './ClosablePanel'
 import { faCog } from '@fortawesome/free-solid-svg-icons'
 import { Select } from './Select'
@@ -11,11 +12,13 @@ export const Configuration = () => {
   const dispatch = useDispatch()
   const formats = ['HH:mm:ss', 'h:mm:ss A', 'HH:mm', 'h:mm A']
   const timezones = moment.tz.names()
-  const initialTimezone = moment.tz.guess()
+  const [timezone, setTimezone] = useState(moment.tz.guess())
   const onFormatSelection = (selected: string) =>
     dispatch(updateFormat(selected))
-  const onTimezoneSelection = (selected: string) =>
+  const onTimezoneSelection = (selected: string) => {
+    setTimezone(selected)
     dispatch(updateTimezone(selected))
+  }
 
   return (
     <ClosablePanel title="Configuration" icon={faCog} open={false}>
@@ -23,7 +26,7 @@ export const Configuration = () => {
       <Select
         name="Timezone"
         items={timezones}
-        selected={initialTimezone}
+        selected={timezone}
         onSelection={onTimezoneSelection}
       />
     </ClosablePanel>
