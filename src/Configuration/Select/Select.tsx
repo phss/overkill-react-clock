@@ -11,10 +11,12 @@ const optionsFrom = (items: string[]) => {
 }
 
 export const Select = ({ name, items, selected }: SelectProps) => {
+  const selectId = name.toLowerCase().replace(' ', '_')
+
   return (
     <div>
-      <label htmlFor="blah">{name}</label>
-      <select id="blah" value={selected}>
+      <label htmlFor={selectId}>{name}</label>
+      <select id={selectId} value={selected}>
         {optionsFrom(items)}
       </select>
     </div>
