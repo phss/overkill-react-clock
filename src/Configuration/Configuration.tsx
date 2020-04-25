@@ -7,7 +7,7 @@ import { updateFormat } from './actions'
 
 export const Configuration = () => {
   const dispatch = useDispatch()
-  const formats = ['HH:mm:ss', 'hh:mm:ss A', 'HH:mm', 'hh:mm A']
+  const formats = ['HH:mm:ss', 'h:mm:ss A', 'HH:mm', 'h:mm A']
   const onSelection = (selected: string) => dispatch(updateFormat(selected))
 
   return (

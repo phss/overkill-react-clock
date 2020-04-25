@@ -24,9 +24,9 @@ describe('Configuration component', () => {
       const { getByText } = renderComponent()
 
       expect(getByText('HH:mm:ss')).toBeInTheDocument()
-      expect(getByText('hh:mm:ss A')).toBeInTheDocument()
+      expect(getByText('h:mm:ss A')).toBeInTheDocument()
       expect(getByText('HH:mm')).toBeInTheDocument()
-      expect(getByText('hh:mm A')).toBeInTheDocument()
+      expect(getByText('h:mm A')).toBeInTheDocument()
     })
 
     it('dispatches action when selecting format', () => {

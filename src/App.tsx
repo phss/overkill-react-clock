@@ -1,18 +1,22 @@
 import * as React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
-import { compose, createStore, applyMiddleware } from 'redux'
+import { compose, createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 import { Clock } from './Clock'
 import clockReducer from './Clock/reducers'
+import configurationReducer from './Configuration/reducers'
 import clockSaga from './Clock/sagas'
 import { Configuration } from './Configuration'
 import './App.css'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
-  clockReducer,
+  combineReducers({
+    clock: clockReducer,
+    configuration: configurationReducer
+  }),
   compose(
     applyMiddleware(sagaMiddleware),
     // @ts-ignore

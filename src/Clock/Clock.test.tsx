@@ -1,14 +1,21 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { Clock } from './Clock'
 import reducer from './reducers'
+import configurationReducer from '../Configuration/reducers'
 
 describe('Clock component', () => {
   it('renders clock', () => {
     const date = new Date(2018, 2, 11, 11, 49, 13)
-    const testStore = createStore(reducer, { time: date })
+    const testStore = createStore(
+      combineReducers({
+        clock: reducer,
+        configuration: configurationReducer
+      }),
+      { clock: { time: date }, configuration: { format: 'HH:mm:ss' } }
+    )
     const { asFragment } = render(
       <Provider store={testStore}>
         <Clock />
@@ -19,7 +26,13 @@ describe('Clock component', () => {
   })
 
   it('renders on UPDATE_CLOCK action', () => {
-    const testStore = createStore(reducer)
+    const testStore = createStore(
+      combineReducers({
+        clock: reducer,
+        configuration: configurationReducer
+      }),
+      { configuration: { format: 'h:mm:ss A' } }
+    )
     const { getByText } = render(
       <Provider store={testStore}>
         <Clock />
@@ -32,7 +45,7 @@ describe('Clock component', () => {
       time: newDate
     })
 
-    expect(getByText('16:30:07')).toBeInTheDocument()
+    expect(getByText('4:30:07 PM')).toBeInTheDocument()
     expect(getByText('It is afternoon')).toBeInTheDocument()
   })
 })

@@ -42,13 +42,13 @@ exports[`Configuration component matches snapshot 1`] = `
             HH:mm:ss
           </option>
           <option>
-            hh:mm:ss A
+            h:mm:ss A
           </option>
           <option>
             HH:mm
           </option>
           <option>
-            hh:mm A
+            h:mm A
           </option>
         </select>
       </div>

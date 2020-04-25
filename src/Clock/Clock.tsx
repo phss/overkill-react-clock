@@ -2,14 +2,17 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { PartOfDay } from './PartOfDay'
 import { TimeDisplay } from './TimeDisplay'
-import { ClockState } from './types'
+import { CombinedState } from '../types'
 
 export const Clock = () => {
-  const time: Date = useSelector((state: ClockState) => state.time)
+  const time = useSelector((state: CombinedState) => state.clock.time)
+  const format = useSelector(
+    (state: CombinedState) => state.configuration.format
+  )
 
   return (
     <div>
-      <TimeDisplay time={time} format="HH:mm:ss" />
+      <TimeDisplay time={time} format={format} />
       <PartOfDay time={time} />
     </div>
   )
