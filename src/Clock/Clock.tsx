@@ -9,11 +9,12 @@ export const Clock = () => {
   const { format, timezone } = useSelector(
     (state: CombinedState) => state.configuration
   )
+  const props = { time, format, timezone }
 
   return (
     <div>
-      <TimeDisplay time={time} format={format} timezone={timezone} />
-      <PartOfDay time={time} timezone={timezone} />
+      <TimeDisplay {...props} />
+      <PartOfDay {...props} />
     </div>
   )
 }
