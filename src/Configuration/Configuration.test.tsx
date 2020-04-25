@@ -46,4 +46,13 @@ describe('Configuration component', () => {
       ])
     })
   })
+
+  describe('timezone', () => {
+    it('renders timezone selector', () => {
+      const { getByText } = renderComponent()
+
+      expect(getByText('America/Los_Angeles')).toBeInTheDocument()
+      expect(getByText('Zulu')).toBeInTheDocument()
+    })
+  })
 })
