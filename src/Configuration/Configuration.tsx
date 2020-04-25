@@ -11,6 +11,7 @@ export const Configuration = () => {
   const dispatch = useDispatch()
   const formats = ['HH:mm:ss', 'h:mm:ss A', 'HH:mm', 'h:mm A']
   const timezones = moment.tz.names()
+  const initialTimezone = moment.tz.guess()
   const onFormatSelection = (selected: string) =>
     dispatch(updateFormat(selected))
   const onTimezoneSelection = (selected: string) =>
@@ -22,6 +23,7 @@ export const Configuration = () => {
       <Select
         name="Timezone"
         items={timezones}
+        selected={initialTimezone}
         onSelection={onTimezoneSelection}
       />
     </ClosablePanel>
