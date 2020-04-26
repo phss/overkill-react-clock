@@ -3,23 +3,22 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import { Clock } from './Clock'
-import reducer from './reducers'
+import clockReducer from './reducers'
 import configurationReducer from '../Configuration/reducers'
 import { updateClock } from './actions'
 
 describe('Clock component', () => {
+  const reducers = combineReducers({
+    clock: clockReducer,
+    configuration: configurationReducer
+  })
+
   it('renders clock', () => {
     const date = new Date(2018, 2, 11, 11, 49, 13)
-    const testStore = createStore(
-      combineReducers({
-        clock: reducer,
-        configuration: configurationReducer
-      }),
-      {
-        clock: { time: date },
-        configuration: { format: 'HH:mm:ss', timezone: 'America/New_York' }
-      }
-    )
+    const testStore = createStore(reducers, {
+      clock: { time: date },
+      configuration: { format: 'HH:mm:ss', timezone: 'America/New_York' }
+    })
     const { asFragment } = render(
       <Provider store={testStore}>
         <Clock />
@@ -30,13 +29,9 @@ describe('Clock component', () => {
   })
 
   it('renders on UPDATE_CLOCK action', () => {
-    const testStore = createStore(
-      combineReducers({
-        clock: reducer,
-        configuration: configurationReducer
-      }),
-      { configuration: { format: 'h:mm:ss A', timezone: 'Zulu' } }
-    )
+    const testStore = createStore(reducers, {
+      configuration: { format: 'h:mm:ss A', timezone: 'Zulu' }
+    })
     const { getByText } = render(
       <Provider store={testStore}>
         <Clock />
