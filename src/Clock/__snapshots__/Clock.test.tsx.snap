@@ -4,7 +4,7 @@ exports[`Clock component renders clock 1`] = `
 <DocumentFragment>
   <div>
     <p
-      class="clock"
+      class="time"
     >
       07:49:13
     </p>

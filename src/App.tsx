@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
@@ -25,13 +23,7 @@ const store = createStore(
 )
 sagaMiddleware.run(clockSaga)
 
-const Title = () => (
-  <h1 className="title">
-    <FontAwesomeIcon icon={faClock} />
-    Overkill React Clock
-    <FontAwesomeIcon icon={faClock} />
-  </h1>
-)
+const Title = () => <h1 className="title">Overkill React Clock</h1>
 
 const AppComponent = () => (
   <div>

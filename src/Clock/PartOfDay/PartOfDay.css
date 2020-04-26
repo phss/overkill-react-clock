@@ -1,3 +1,5 @@
 .partOfDay {
-  color: gray;
+  font-weight: lighter;
+  color: lightgray;
+  font-size: 24px;
 }

@@ -1,7 +1,7 @@
 .closable-panel .title {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .closable-panel.closed .children {
-    display: none;
+  display: none;
 }
