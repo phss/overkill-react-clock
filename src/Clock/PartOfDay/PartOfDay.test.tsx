@@ -3,11 +3,15 @@ import * as React from 'react'
 import { PartOfDay } from './PartOfDay'
 
 describe('PartOfDay component', () => {
-  const componentAtTime = (hour: number, minute: number) => {
+  const componentAtTime = (
+    hour: number,
+    minute: number,
+    timezone: string = 'Europe/London'
+  ) => {
     const { container } = render(
       <PartOfDay
         time={new Date(2018, 2, 6, hour, minute, 0)}
-        timezone="Europe/London"
+        timezone={timezone}
       />
     )
     return container.textContent
@@ -59,5 +63,9 @@ describe('PartOfDay component', () => {
 
   it('displays night at the end of night (4:59am)', () => {
     expect(componentAtTime(4, 59)).toBe('It is night')
+  })
+
+  it('displays at a given timezone', () => {
+    expect(componentAtTime(4, 59, 'Pacific/Niue')).toBe('It is evening')
   })
 })
