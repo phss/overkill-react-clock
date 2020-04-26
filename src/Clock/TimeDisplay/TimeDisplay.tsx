@@ -10,5 +10,5 @@ interface TimeDisplayProps {
 }
 
 export const TimeDisplay = ({ time, format, timezone }: TimeDisplayProps) => (
-  <p className="clock">{moment.tz(time, timezone).format(format)}</p>
+  <p className="time">{moment.tz(time, timezone).format(format)}</p>
 )

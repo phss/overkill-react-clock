@@ -1,5 +1,3 @@
-.clock {
-    font-family: "Orbitron";
-    color: rgb(40, 182, 27);
-    font-size: 200%;
+.partOfDay {
+  color: gray;
 }
