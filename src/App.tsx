@@ -1,13 +1,14 @@
+import { Container } from '@material-ui/core'
 import * as React from 'react'
-import { compose, createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import './App.css'
 import { Clock } from './Clock'
 import clockReducer from './Clock/reducers'
-import configurationReducer from './Configuration/reducers'
 import clockSaga from './Clock/sagas'
 import { Configuration } from './Configuration'
-import './App.css'
+import configurationReducer from './Configuration/reducers'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
@@ -26,11 +27,11 @@ sagaMiddleware.run(clockSaga)
 const Title = () => <h1 className="title">Overkill React Clock</h1>
 
 const AppComponent = () => (
-  <div>
+  <Container>
     <Title />
     <Clock />
     <Configuration />
-  </div>
+  </Container>
 )
 
 export const App = () => (
