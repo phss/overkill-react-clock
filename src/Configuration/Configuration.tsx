@@ -7,6 +7,7 @@ import moment from 'moment'
 import 'moment-timezone'
 import { Format } from './types'
 import { updateFormat, updateTimezone } from './actions'
+import './Configuration.css'
 
 const formats: Format[] = ['HH:mm:ss', 'h:mm:ss A', 'HH:mm', 'h:mm A']
 
