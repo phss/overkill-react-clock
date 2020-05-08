@@ -1,8 +1,9 @@
+import { Container } from '@material-ui/core'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
+import { CombinedState } from '../types'
 import { PartOfDay } from './PartOfDay'
 import { TimeDisplay } from './TimeDisplay'
-import { CombinedState } from '../types'
 
 export const Clock = () => {
   const time = useSelector((state: CombinedState) => state.clock.time)
@@ -12,9 +13,9 @@ export const Clock = () => {
   const props = { time, format, timezone }
 
   return (
-    <div>
+    <Container>
       <TimeDisplay {...props} />
       <PartOfDay {...props} />
-    </div>
+    </Container>
   )
 }

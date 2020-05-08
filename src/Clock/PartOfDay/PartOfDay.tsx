@@ -1,12 +1,18 @@
-import * as React from 'react'
+import { styled, Typography } from '@material-ui/core'
 import moment from 'moment'
 import 'moment-timezone'
-import './PartOfDay.css'
+import * as React from 'react'
 
 interface PartOfDayProps {
   time: Date
   timezone: string
 }
+
+const Information = styled(Typography)({
+  fontWeight: 'lighter',
+  color: 'lightgray',
+  fontSize: '24px'
+})
 
 const partAt = (time: Date, timezone: string) => {
   const hour = moment.tz(time, timezone).hour()
@@ -22,5 +28,5 @@ const partAt = (time: Date, timezone: string) => {
 }
 
 export const PartOfDay = ({ time, timezone }: PartOfDayProps) => (
-  <p className="partOfDay">It is {partAt(time, timezone)}</p>
+  <Information>It is {partAt(time, timezone)}</Information>
 )

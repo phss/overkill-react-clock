@@ -2,14 +2,16 @@
 
 exports[`Clock component renders clock 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg"
+  >
     <p
-      class="time"
+      class="MuiTypography-root WithStyles(ForwardRef(Typography))-root-9 MuiTypography-body1"
     >
       07:49:13
     </p>
     <p
-      class="partOfDay"
+      class="MuiTypography-root WithStyles(ForwardRef(Typography))-root-40 MuiTypography-body1"
     >
       It is morning
     </p>

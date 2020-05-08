@@ -1,7 +1,7 @@
-import * as React from 'react'
+import { styled, Typography } from '@material-ui/core'
 import moment from 'moment'
 import 'moment-timezone'
-import './TimeDisplay.css'
+import * as React from 'react'
 
 interface TimeDisplayProps {
   time: Date
@@ -9,6 +9,14 @@ interface TimeDisplayProps {
   timezone: string
 }
 
+const DigitalClock = styled(Typography)({
+  fontFamily: 'Orbitron',
+  color: 'rgb(40, 182, 27)',
+  fontSize: '128px',
+  marginBlockEnd: '0em',
+  marginBlockStart: '0em'
+})
+
 export const TimeDisplay = ({ time, format, timezone }: TimeDisplayProps) => (
-  <p className="time">{moment.tz(time, timezone).format(format)}</p>
+  <DigitalClock>{moment.tz(time, timezone).format(format)}</DigitalClock>
 )

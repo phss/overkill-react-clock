@@ -6,8 +6,4 @@ export const Title = styled(Typography)({
   letterSpacing: '10px',
   fontSize: '64px',
   margin: '42px'
-  // '@media(max-width: 920px)': {
-  //   color: 'red',
-  //   fontSize: '42px'
-  // }
 })
