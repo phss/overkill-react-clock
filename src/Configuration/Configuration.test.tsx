@@ -6,7 +6,7 @@ import { Configuration } from './Configuration'
 import { updateFormat, updateTimezone } from './actions'
 
 describe('Configuration component', () => {
-  let mockStore = configureStore([])({})
+  let mockStore = configureStore([])({ clock: {}, configuration: {} })
 
   const renderComponent = () =>
     render(
@@ -16,7 +16,7 @@ describe('Configuration component', () => {
     )
 
   beforeEach(() => {
-    mockStore = configureStore([])({})
+    mockStore = configureStore([])({ clock: {}, configuration: {} })
   })
 
   it('matches snapshot', () => {

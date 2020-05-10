@@ -2,7 +2,8 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import moment from 'moment'
 import 'moment-timezone'
 import * as React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { CombinedState } from '../types'
 import { updateFormat, updateTimezone } from './actions'
 import { ClosablePanel } from './ClosablePanel'
 import { Select } from './Select'
@@ -15,9 +16,10 @@ interface ConfigurationProps {
 }
 
 export const Configuration = ({ open = false }: ConfigurationProps) => {
+  const { format, timezone } = useSelector(
+    (state: CombinedState) => state.configuration
+  )
   const dispatch = useDispatch()
-  const timezones = moment.tz.names()
-  const initialTimezone = moment.tz.guess()
 
   const onFormatSelection = (selected: string) =>
     dispatch(updateFormat(selected as Format))
@@ -26,11 +28,16 @@ export const Configuration = ({ open = false }: ConfigurationProps) => {
 
   return (
     <ClosablePanel title="Configuration" icon={<SettingsIcon />} open={open}>
-      <Select name="Format" items={formats} onSelection={onFormatSelection} />
+      <Select
+        name="Format"
+        items={formats}
+        selected={format || formats[0]}
+        onSelection={onFormatSelection}
+      />
       <Select
         name="Timezone"
-        items={timezones}
-        selected={initialTimezone}
+        items={moment.tz.names()}
+        selected={timezone || moment.tz.guess()}
         onSelection={onTimezoneSelection}
       />
     </ClosablePanel>
