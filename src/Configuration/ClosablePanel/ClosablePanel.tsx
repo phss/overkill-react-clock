@@ -1,5 +1,3 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   Button,
   Container,
@@ -14,7 +12,7 @@ import CloseIcon from '@material-ui/icons/Close'
 
 interface ClosablePanelProps {
   title: string
-  icon?: IconDefinition
+  icon?: React.ReactNode
   open: boolean
   children?: React.ReactNode
 }
@@ -30,9 +28,7 @@ export const ClosablePanel = ({
 
   return (
     <Container>
-      <Button onClick={togglePanel}>
-        {icon ? <FontAwesomeIcon data-testid="icon" icon={icon} /> : title}
-      </Button>
+      <Button onClick={togglePanel}>{icon || title}</Button>
       <Dialog open={toggle} onClose={togglePanel}>
         <DialogTitle>
           {title}

@@ -1,4 +1,4 @@
-import { faCog } from '@fortawesome/free-solid-svg-icons'
+import SettingsIcon from '@material-ui/icons/Settings'
 import moment from 'moment'
 import 'moment-timezone'
 import * as React from 'react'
@@ -25,7 +25,7 @@ export const Configuration = ({ open = false }: ConfigurationProps) => {
     dispatch(updateTimezone(selected))
 
   return (
-    <ClosablePanel title="Configuration" icon={faCog} open={open}>
+    <ClosablePanel title="Configuration" icon={<SettingsIcon />} open={open}>
       <Select name="Format" items={formats} onSelection={onFormatSelection} />
       <Select
         name="Timezone"

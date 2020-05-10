@@ -1,4 +1,3 @@
-import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 import { fireEvent, render } from '@testing-library/react'
 import * as React from 'react'
 import { ClosablePanel } from './ClosablePanel'
@@ -37,10 +36,11 @@ describe('ClosablePanel component', () => {
     })
 
     it('renders title with icon', () => {
+      const Icon = () => <i data-testid="icon">Some Icon</i>
       const { queryByText, getByTestId } = render(
         <ClosablePanel
           title="Some panel with icon"
-          icon={faCloudMoon}
+          icon={<Icon />}
           open={false}
         />
       )
