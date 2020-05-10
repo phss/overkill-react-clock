@@ -11,7 +11,7 @@ describe('Configuration component', () => {
   const renderComponent = () =>
     render(
       <Provider store={mockStore}>
-        <Configuration />
+        <Configuration open={true} />
       </Provider>
     )
 
