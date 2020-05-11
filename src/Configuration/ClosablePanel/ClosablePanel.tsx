@@ -2,13 +2,66 @@ import {
   Button,
   Container,
   Dialog,
-  DialogTitle,
-  DialogContent,
-  IconButton
+  DialogTitle as MuiDialogTitle,
+  DialogContent as MuiDialogContent,
+  IconButton,
+  createStyles,
+  Theme,
+  withStyles,
+  WithStyles
 } from '@material-ui/core'
 import * as React from 'react'
 import { useState } from 'react'
 import CloseIcon from '@material-ui/icons/Close'
+
+const styles = (theme: Theme) =>
+  createStyles({
+    title: {
+      textAlign: 'left'
+    },
+    closeButton: {
+      position: 'absolute',
+      right: theme.spacing(1),
+      top: theme.spacing(1),
+      color: theme.palette.grey[500]
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      margin: 'auto',
+      width: 'fit-content'
+    }
+  })
+
+export interface DialogTitleProps extends WithStyles<typeof styles> {
+  children: React.ReactNode
+  onClose: () => void
+}
+
+const DialogTitle = withStyles(styles)((props: DialogTitleProps) => {
+  const { children, classes, onClose, ...other } = props
+  return (
+    <MuiDialogTitle className={classes.title} {...other}>
+      {children}
+      <IconButton className={classes.closeButton} onClick={onClose}>
+        <CloseIcon />
+      </IconButton>
+    </MuiDialogTitle>
+  )
+})
+
+export interface DialogContentProps extends WithStyles<typeof styles> {
+  children: React.ReactNode
+}
+
+const DialogContent = withStyles(styles)((props: DialogContentProps) => {
+  const { children, classes } = props
+  return (
+    <MuiDialogContent dividers>
+      <form className={classes.form}>{children}</form>
+    </MuiDialogContent>
+  )
+})
 
 interface ClosablePanelProps {
   title: string
@@ -30,12 +83,7 @@ export const ClosablePanel = ({
     <Container>
       <Button onClick={togglePanel}>{icon || title}</Button>
       <Dialog open={toggle} onClose={togglePanel}>
-        <DialogTitle>
-          {title}
-          <IconButton onClick={togglePanel}>
-            <CloseIcon />
-          </IconButton>
-        </DialogTitle>
+        <DialogTitle onClose={togglePanel}>{title}</DialogTitle>
         <DialogContent>{children}</DialogContent>
       </Dialog>
     </Container>
