@@ -11,7 +11,7 @@ interface PartOfDayProps {
 const Information = styled(Typography)({
   fontWeight: 'lighter',
   color: 'lightgray',
-  fontSize: '24px'
+  fontSize: '2vw'
 })
 
 const partAt = (time: Date, timezone: string) => {

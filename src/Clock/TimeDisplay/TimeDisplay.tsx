@@ -12,7 +12,7 @@ interface TimeDisplayProps {
 const DigitalClock = styled(Typography)({
   fontFamily: 'Orbitron',
   color: 'rgb(40, 182, 27)',
-  fontSize: '128px',
+  fontSize: '10vw',
   marginBlockEnd: '0em',
   marginBlockStart: '0em'
 })
